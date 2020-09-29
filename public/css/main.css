@@ -1,0 +1,248 @@
+html {
+    min-height: 100%;
+    height: 100%;
+    background-color: #d4dadf;
+    -webkit-font-smoothing: antialiased;
+    display: table;
+    margin: auto;
+}
+
+a,
+.main {
+    color: #000;
+    text-decoration: none !important;
+}
+
+.main {
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.bng,
+.prom,
+.lnb,
+.prod,
+.footer {
+    width: 400px;
+}
+
+* {
+    font-family: 'Helveticaneue-light', helvetica, 'AppleSDGothicNeo-Light', 'Apple SD Gothic Neo', sans-serif;
+}
+
+
+/* bng 시작 */
+
+.bng {
+    z-index: 100;
+    background-color: #12BA17;
+}
+
+.section__event__tab {
+    height: 30px;
+    border-bottom: 1px #E9ECEF solid;
+}
+
+.section__event__tab ul {
+    padding: 0px 0px 0px 10px;
+}
+
+.section__event__tab ul li {
+    list-style: none;
+    float: left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px 10px;
+}
+
+.event__tab__lst .item {
+    color: black;
+    display: block;
+    height: 30px;
+    /* font-size: 15px; */
+    font-weight: bold;
+}
+
+.logo {
+    position: relative;
+    height: 10px;
+}
+
+.logo__link {
+    background-image: url(../img/spr_bi.png);
+    background-size: 160px;
+    height: 34px;
+    width: 40px;
+    /* color: transparent; */
+}
+
+.logo__logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: transparent
+}
+
+.logo__reserv {
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    font-size: 25px;
+    color: white;
+}
+
+.bng {
+    position: relative;
+    height: 52px;
+}
+
+.reservation--check {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: white;
+    font-size: 24px;
+}
+
+
+/* bng 끝 */
+
+
+/* promotion 시작 */
+
+.prom {
+    z-index: -1;
+    height: 163px;
+    background-color: white;
+    margin: 0px;
+    margin-top: -2px;
+    padding: 0px;
+}
+
+.visual_img {
+    padding: 0px;
+    margin: 0px;
+    background-position: center center;
+    background-size: cover;
+    list-style: none;
+    width: 5000px;
+}
+
+.visual_img li {
+    float: left;
+    height: 182px;
+    width: 400px;
+    text-align: center;
+    background-size: cover
+}
+
+
+/* promotion 끝 */
+
+
+/* lnb 시작 */
+
+.lnb {
+    clear: both;
+    background-color: white;
+    padding: 0px;
+}
+
+
+/* lnb 끝 */
+
+
+/* product 시작 */
+
+.prod {
+    clear: both;
+}
+
+.prod img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 10px 0px -2px 0px;
+}
+
+.prod .event_lst_txt {
+    height: 20px;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    margin: 0px 0px -20px 0px;
+    text-align: center;
+}
+
+.prod .pink {
+    color: #F93A3A
+}
+
+.prod .section_event_lst {
+    position: relative;
+}
+
+.prod .lst_event_box_left {
+    float: left;
+    width: 50%;
+}
+
+.prod .lst_event_box_right {
+    float: right;
+    width: 50%;
+}
+
+.prod .lst_event {
+    list-style: none;
+    padding: 3px;
+}
+
+.prod .item .event_txt {
+    background-color: white;
+    padding: 10px;
+    margin: 0px 0px;
+}
+
+.prod .item .event_txt_dsc {
+    height: 40px;
+    color: gray;
+    overflow: hidden;
+    border-top: 1px #D2D2D3 solid;
+    padding-top: 20px
+}
+
+.prod .sm {
+    display: block;
+}
+
+.prod .more {
+    padding: 3px;
+}
+
+.prod .more>.btn {
+    border: 1px #D2D2D3 solid;
+    width: 100%;
+    height: 35px;
+    background-color: #FFFFFF;
+}
+
+
+/* product 끝 */
+
+
+/* footer 시작 */
+
+.footer {
+    clear: both;
+    text-align: center;
+    color: #777;
+}
+
+.gototop {
+    padding: 40px 0px 20px 0px
+}
+
+
+/* footer 끝 */
