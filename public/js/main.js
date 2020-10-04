@@ -17,49 +17,16 @@ const showProducts = (payload) => {
             document.querySelector('#load__more').style.visibility = "hidden";
             return;
         }
-        let target = document.querySelector('.lst_event_box_left');
+        let target = document.querySelector('.lst_event_box_left').childNodes[1];
         if (index % 2) {
-            target = document.querySelector('.lst_event_box_right');
+            target = document.querySelector('.lst_event_box_right').childNodes[1];
         }
-        const newLi = document.createElement('li');
-        newLi.setAttribute('class', 'item');
-        const newDiv1 = document.createElement('div');
-        newDiv1.setAttribute('class', 'item_preview');
-        const newImg1 = document.createElement('img');
-        newImg1.setAttribute('alt', payload.items[index].productDescription);
-        newImg1.setAttribute('class', 'img_thumb');
-        newImg1.setAttribute('id', 'product_image_id_' + payload.items[index].productId);
-        newImg1.setAttribute('src', '/static/' + payload.items[index].productImageUrl);
-
-        const newSpan1 = document.createElement('span');
-        newSpan1.setAttribute('class', 'img_border');
-        newDiv1.appendChild(newImg1);
-        newDiv1.appendChild(newSpan1);
-
-        const newDiv2 = document.createElement('div');
-        newDiv2.setAttribute('class', 'event_txt');
-        const newH4 = document.createElement('h4');
-        newH4.setAttribute('class', 'event_txt_tit');
-        const newSpan2 = document.createElement('span');
-        const newSpanTxt = document.createTextNode(payload.items[index].productDescription);
-        newSpan2.appendChild(newSpanTxt);
-        newH4.appendChild(newSpan2);
-        const newSmall = document.createElement('small');
-        newSmall.setAttribute('class', 'sm');
-        newSmall.setAttribute('id', 'display_info_id_' + payload.items[index].productId);
-        newH4.append(newSmall);
-
-        const newP = document.createElement('p');
-        newP.setAttribute('class', 'event_txt_dsc');
-        const newPTxt = document.createTextNode(payload.items[index].productContent);
-        newP.appendChild(newPTxt);
-
-        newDiv2.appendChild(newH4);
-        newDiv2.appendChild(newP);
-
-        newLi.appendChild(newDiv1);
-        newLi.appendChild(newDiv2);
-        target.firstElementChild.appendChild(newLi);
+        const template = document.querySelector('#productListTemplate').innerText;
+        const bindProductList = Handlebars.compile(template);
+        const res = bindProductList(payload.items[index]);
+        let targetInnerHTML = target.innerHTML;
+        targetInnerHTML += res;
+        target.innerHTML = targetInnerHTML;
     }
 }
 
@@ -108,7 +75,6 @@ const showNextPromotion = () => {
     setInterval(function() {
         const count = document.querySelector(".visual_img").childElementCount;
         const ul = document.querySelector('#promotion__list');
-
         ul.style.transition = '0.2s';
         ul.style.transform = "translate3d(-" + 400 * (promotionStartIndex + 1) + "px, 0px, 0px)";
         if (++promotionStartIndex === count - 1) {
@@ -117,15 +83,15 @@ const showNextPromotion = () => {
     }, 2000);
 }
 
-
 const showPromotions = (list) => {
     const target = document.querySelector('#promotion__list');
+    const template = document.querySelector('#promotionListTemplate').innerText;
+    const bindPromotionList = Handlebars.compile(template);
+    let innerHTMLPromotion = '';
     for (const item of list) {
-        const newLi = document.createElement('li');
-        newLi.setAttribute('class', 'promotion__list')
-        newLi.setAttribute('style', 'background: url( "/static/' + item.productImageUrl + '" ); background-size: cover; ')
-        target.appendChild(newLi);
+        innerHTMLPromotion += bindPromotionList(item);
     }
+    target.innerHTML = innerHTMLPromotion;
 }
 
 const getPromotions = () => {
@@ -139,7 +105,7 @@ const getPromotions = () => {
                     getPromotions();
                     return;
                 }
-                showPromotions(promotionList.items)
+                showPromotions(promotionList.items);
             } else {
                 console.log('request error');
             }
@@ -163,18 +129,15 @@ const showCategories = (list) => {
         },
         ...list
     ]
+
+    const template = document.querySelector('#categoriesListTemplate').innerText;
+    const bindTemplate = Handlebars.compile(template);
+    let innerHTMLCategories = '';
     for (const item of lists) {
-        const newLi = document.createElement('li');
-        newLi.setAttribute('class', 'item');
-        newLi.setAttribute('onclick', 'clearProducts({ category: ' + item.id + '})');
-        const newA = document.createElement('a');
-        newA.setAttribute('class', 'anchor');
-        const newSpan = document.createElement('span');
-        const newSpanTxt = document.createTextNode(item.name);
-        newSpan.appendChild(newSpanTxt);
-        newLi.appendChild(newSpan);
-        target.appendChild(newLi);
+        console.log(item);
+        innerHTMLCategories += bindTemplate(item);
     }
+    target.innerHTML = innerHTMLCategories;
 }
 
 const getCategories = () => {
@@ -203,3 +166,18 @@ const getCategories = () => {
     httpRequest.open('GET', 'api/categories');
     httpRequest.send();
 }
+
+/**
+<li class="item">
+    <a href="detail.html?id=${id}" class="item_book">
+        <div class="item_preview">
+            <img alt="${description}" class="img_thumb" src="http://211.249.62.123/productImages/${id}?type=th">
+            <span class="img_border"></span>
+        </div>
+        <div class="event_txt">
+            <h4 class="event_txt_tit"> <span>${description}</span> <small class="sm">${placeName}</small> </h4>
+            <p class="event_txt_dsc">${content}</p>
+        </div>
+    </a>
+</li>
+ */
