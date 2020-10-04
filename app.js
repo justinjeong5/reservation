@@ -103,20 +103,27 @@ app.get('/api/promotions', (request, response) => {
     db.query(`
         SELECT promotion.id AS id,
         product.id AS productId,
-        file_info.save_file_name AS productImageUrl
+        product.content AS productContent,
+        product.description AS productDescription,
+        file_info.save_file_name AS productImageUrl,
+        display_info.place_name AS placeName
         FROM promotion
         INNER JOIN product ON promotion.product_id = product.id
         INNER JOIN product_image ON product.id = product_image.product_id
         INNER JOIN file_info ON product_image.file_id = file_info.id
+        INNER JOIN display_info ON product.id = display_info.product_id
         WHERE product_image.type='th';
         `, (err, result) => {
         if (err) throw err;
         let items = [];
         for (let item of result) {
             let temp = {
-                id: item.id,
+                promotionId: item.id,
                 productId: item.productId,
-                productImageUrl: item.productImageUrl
+                productImageUrl: item.productImageUrl,
+                productDescription: item.productDescription,
+                productContent: item.productContent,
+                placeName: item.placeName
             };
             items.push(temp);
         }
