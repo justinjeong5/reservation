@@ -138,6 +138,26 @@ a,
     background-size: cover
 }
 
+#promotion__list h4,
+#promotion__list p {
+    -webkit-text-stroke: 0.2px gray;
+    width: 220px;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+    margin: 0px 20px 0px 15px;
+}
+
+#promotion__list h4 {
+    font-size: 1.2em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#promotion__list p {
+    height: 20px;
+}
+
 
 /* promotion 끝 */
 
