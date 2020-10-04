@@ -2,3 +2,11 @@
     <ul class="event__tab__lst" id="category__list">
     </ul>
 </div>
+
+<script type="my_template" id="categoriesListTemplate">
+    <li class='item' onclick="clearProducts({category: {{id}} })">
+        <span>
+            {{name}}
+        </span>
+    </li>
+</script>

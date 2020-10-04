@@ -15,16 +15,24 @@
     </div>
 </div>
 
-<script type="rv-template" id="itemList">
+<script type="my-template" id="productListTemplate">
     <li class="item">
-        <a href="detail.html?id=${id}" class="item_book">
+        <a href="detail.html?id={{productId}}" class="item_book">
             <div class="item_preview">
-                <img alt="${description}" class="img_thumb" src="http://211.249.62.123/productImages/${id}?type=th">
-                <span class="img_border"></span>
+                <img alt="{{productDescription}}" class="img_thumb" src="/static/{{productImageUrl}}">
+                <span class="img_border">
+            </span>
             </div>
             <div class="event_txt">
-                <h4 class="event_txt_tit"> <span>${description}</span> <small class="sm">${placeName}</small> </h4>
-                <p class="event_txt_dsc">${content}</p>
+                <h4 class="event_txt_tit">
+                    <span>
+                        {{productDescription}}
+                    </span>
+                    <small class="sm" id="product_image_id_{{id}}">{{placeName}}</small>
+                </h4>
+                <p class="event_txt_dsc">
+                    {{productContent}}
+                </p>
             </div>
         </a>
     </li>
