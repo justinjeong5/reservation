@@ -6,6 +6,14 @@
 
 ## 기술스택
 
+FE
+html / css
+javscript
+js module: handlebars
+
+BE
+nodejs
+
 ## 개발환경
 
 ## 기타
