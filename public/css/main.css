@@ -98,7 +98,7 @@ a,
     height: 52px;
 }
 
-.reservation--check {
+.reservation__check {
     position: absolute;
     right: 10px;
     top: 12px;
@@ -156,6 +156,13 @@ a,
 
 #promotion__list p {
     height: 20px;
+}
+
+.container_visual {
+    /* height: 188px; */
+    position: relative;
+    margin: auto;
+    overflow: hidden;
 }
 
 
