@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="justinjeong이 만든 boostcourse의 project#3. naver-reservation">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>justin's reservation - detail</title>
+    <script src="/static/js/detail.js"></script>
+    <link rel="stylesheet" href="/static/css/detail.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="title" id="insert-html" insert-html="/static/title.html"></div>
+        <div class="desc" id="insert-html" insert-html="/static/description.html"></div>
+        <div class="evt" id="insert-html" insert-html="/static/event.html"></div>
+        <div class="res" id="insert-html" insert-html="/static/reserve.html"></div>
+        <div class="comment" id="insert-html" insert-html="/static/comment.html"></div>
+        <div class="notice" id="insert-html" insert-html="/static/notice.html"></div>
+        <div class="footer" id="insert-html" insert-html="/static/footer.html"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            insertHTML();
+        });
+    </script>
+
+</body>
+
+</html>
