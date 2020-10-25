@@ -1,6 +1,6 @@
 # Reservation
 
-[네이버 예약 플랫폼 클론 프로젝트 바로가기](http://kyunghajeong.com:3000/)
+<a href="http://kyunghajeong.com/" target="_blank">네이버 예약 플랫폼 클론 프로젝트 바로가기</a>
 
 ## 개발 환경
 - Visual Studio Code
